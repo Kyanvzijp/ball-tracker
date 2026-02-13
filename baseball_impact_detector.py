@@ -786,45 +786,6 @@ def main():
 """
 OPTIMIZATION STRATEGIES IMPLEMENTED:
 
-1. Resolution Management:
-   - Default 640x480 balances quality and speed
-   - For maximum FPS, reduce to 320x240 or 424x240
-   
-2. Fast Shutter Speed:
-   - ExposureTime=2000 (2ms) minimizes motion blur at 90mph
-   - Critical for capturing sharp impact frames
-   
-3. Frame Differencing vs MOG2:
-   - Simple differencing is 3-5x faster than MOG2
-   - Sufficient for fixed camera with static background
-   
-4. Morphological Operations:
-   - Small kernel (3x3) for speed
-   - Opening removes isolated noise pixels
-   - Closing fills small gaps in impact regions
-   
-5. Contour Analysis:
-   - RETR_EXTERNAL only (faster than RETR_TREE)
-   - CHAIN_APPROX_SIMPLE reduces memory
-   - Area filtering before detailed analysis
-   
-6. Debounce Logic:
-   - Prevents multiple triggers from single impact
-   - Configurable cooldown period
-   
-7. Consecutive Frame Requirement:
-   - Reduces false positives from random noise
-   - Balances reliability vs latency
-
-8. Numpy Vectorization:
-   - All operations use OpenCV's optimized functions
-   - No Python loops over pixels
-   
-9. Memory Management:
-   - Fixed-size deque for impact history
-"""
-OPTIMIZATION STRATEGIES IMPLEMENTED:
-
 1. IR Camera Optimization:
    - Fixed exposure time (2ms) prevents IR flicker
    - Disabled auto-exposure/white balance reduces overhead
